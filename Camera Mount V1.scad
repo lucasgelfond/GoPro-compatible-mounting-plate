@@ -13,10 +13,10 @@
     plateThick = 2;
     holePattern = 45;
     screwHole =4.5;
-
-module cameraMount() {
-
-	middleRailXSize = 4.5;
+    
+    
+    
+    middleRailXSize = 4.5;
 	middleRailYSize = 34;
 	middleRailZSize = 3.5;
 	
@@ -32,6 +32,8 @@ module cameraMount() {
 	edgeOuterAngle = 25;
 	edgeSideAngle = 45;
 	edgeSideChamferSize = 2;
+
+module cameraMount() {
 
 	union() {
 
@@ -71,6 +73,10 @@ module cameraMount() {
 	}
 
 }
+
+module cameraMount3() {
+    cube([]
+}
 module cameraMount2() {
     difference() {
         cameraMount();
@@ -82,9 +88,7 @@ module cameraMount2() {
 module mainPlate() {
     translate([mountXSize/-2-3.5, mountYSize/-2-3.5, -mountZSize]) {
         difference(){
-            scale([1.2, 1.2, 1.2]) {
-                cameraMount2();
-            }
+            translate([edgeXSize,edgeYSize/8,plateThick/2]) cameraMount2();
             translate([-1,-1,-1]) {
                 cube([mountXSize*1.15+2, mountYSize*1.15+2, 0]);
            }
@@ -116,4 +120,5 @@ module finalPlate() {
 }
 
 
-finalPlate();
+
+cameraMount3();
